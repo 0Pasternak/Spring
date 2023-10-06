@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<htmll xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+	
+	
+
+	
+	
+	<form class="form-horizontal" method="post" action="#" th:action="${empleadoForm.id != 0} ? @{/modelo/edit/submit} : @{/modelo/new/submit}" th:object="${empleadoForm}">
+		<fieldset>
+		
+		<!-- Form Name -->
+		<legend th:text="${empleadoForm.id != 0} ? 'Edir empleado' : 'Nuevo empleado'">Form Name</legend>
+		
+		<!-- Text input-->
+		<div class="form-group" th:classappend="${#fields.hasErrors('id')} ? 'has-error'">
+		  <label class="col-md-4 control-label" for="textinput">id</label>  
+		  <div class="col-md-4">
+		  <input id="textinput" name="textinput" type="text" placeholder="id" class="form-control input-md" th:field="*{id}" th:attrappend="readonly=${empleadoForm.id != 0} ? 'readonly' : null">
+		  <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Errores</span>
+		    
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="textinput">nombre</label>
+		  <div class="col-md-4">
+		  <input id="textinput" name="textinput" type="text" placeholder="nombre" class="form-control input-md" th:field="*{nombre}">
+		    
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="correo">correo</label>  
+		  <div class="col-md-4">
+		  <input id="correo" name="correo" type="text" placeholder="correo" class="form-control input-md" th:field="*{correo}">
+		    
+		  </div>
+		</div>
+		
+		<!-- Text input-->
+		<div class="form-group">
+		  <label class="col-md-4 control-label" for="numero">numero</label>  
+		  <div class="col-md-4">
+		  <input id="numero" name="numero" type="text" placeholder="numero" class="form-control input-md" th:field="*{telefono}">
+		    
+		  </div>
+		</div>
+		<input type="submit"/>
+		
+		</fieldset>
+	</form>
+   
+</body>
+</html>

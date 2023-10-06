@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<htmll xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div class="container">
+		<div class="starter-template">
+			<h1>listado de empleados en la empresa</h1>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Email</th>
+						<th>Teléfono</th>
+						<th>Operaciones</th>
+						
+				</thead>
+					<tr th:each="modelo : ${listaEmpleados} ">
+						<td th:text="${modelo.id}">ID</td>
+						<td th:text="${modelo.nombre}">Pepe Pérez</td>
+						<td th:text="${modelo.correo}">pepe.perez@openwebinars.com</td>
+						<td th:text="${modelo.telefono}">234234234</td>
+						<td><a th:href="@{/modelo/edit/{id} (id = ${modelo.id})}">Editar</a></td>
+			</table>
+		</div>
+	</div>
+</body>
+</html> 
